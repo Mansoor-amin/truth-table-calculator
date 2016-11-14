@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to Computing</title>
+    <style type="text/css">
+        body {
+            background:#bac5d6;
+            color: #5ca59f;
+        }
+        h1{
+            color :#964f90;
+        }
+        h2{
+            color :#964f90;
+        }
+        h3{
+            color :#964f90;
+        }
+        p{
+            color: #5ca59f;
+            text-align:justify;
+        }
+        ul{
+            list-style:none;
+        }
+        table {
+            width: 80%;
+            text-align: center;
+        }
+        .a {
+            padding: 10px;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <h1>perform logical operation for assignment CS101</h1>
+    <div>
+         <label for="vfu">U: </label><input id="vfu" type="number" name="u"/> <br>
+            <label for="vfv">V: </label><input id="vfv" type="number" name="v"/> <br>
+            <label for="vfw">W: </label><input id="vfw" type="number" name="w"/> <br>
+                <button onclick="calculate()">calculate</button>
+             <table border=1>
+                 <th>
+                     <td class="a"><span>U</span></td>
+                     <td class="a"><span>V</span></td>
+                     <td class="a"><span>W</span></td>
+                     <td class="a"><span style="border-top:1px solid ">(U+V+W)</span></td>
+                     <td class="a"><span>(U*V*W)</span></td>
+                     <td class="a"><span style="border-top:1px solid ">(U+V+W)</span> * <span>(U*V*W)</span></td>
+                     <td class="a"><span>(W*V)</span></td>
+                     <td class="a"><span style="border-top:1px solid ">U</span></td>
+                     <td class="a"><span>(W*V)</span> * <span style="border-top:1px solid ">U</span></td>
+                     <td class="a"><span style="border-top:1px solid ">(U+V+W)</span> * <span>(U*V*W)</span> + <span>(W*V)</span> * <span style="border-top:1px solid ">U</span></td>
+                 </th>
+                 <tr>
+                     <td></td>
+                     <td id="iu"></td>
+                     <td id="iv"></td>
+                     <td id="iw"></td>
+                     <td id="oruvwnot"></td>
+                     <td id="anduvw"></td>
+                     <td id="halfeq"></td>
+                     <td id="andwv"></td>
+                     <td id="notu"></td>
+                     <td id="halfeq1"></td>
+                     <td id="equation"></td>
+                    
+                 </tr>
+             </table>
+    
+    </div>
+    
+    
+    
+    <footer>
+        <h2>M Mansoor Amin</h2>
+        <p>Student Id: <span title="student id">BC160402321</span></p>
+        Contact:  <a href="mailto:mmansoor.amin@gmail.com">email me</a>
+    </footer>
+
+    <script type="text/javascript">
+
+        var nor = function(){
+            var iu = document.getElementById('vfu').value;
+            var iv = document.getElementById('vfv').value;
+            var iw = document.getElementById('vfw').value;
+        
+            var res = (iu || iv || iw)
+            
+            if(res == true){
+                res = 0;
+            }else {
+                res = 1;
+            }
+            vnor = res;
+            console.log(res);
+           document.getElementById('NOR').innerText = res;
+           return false;
+        }
+        
+        function calculate(){
+            var iu = document.getElementById('vfu').value;
+            var iv = document.getElementById('vfv').value;
+            var iw = document.getElementById('vfw').value;
+            
+            var oruvwnot = (iu || iv || iw);
+            if(oruvwnot == true){
+                oruvwnot = 0;
+            }else {
+                oruvwnot = 1;
+            }
+            console.log(oruvwnot)
+            
+            var anduvw = (iu && iv && iw);
+            if(anduvw == true){
+                anduvw = 1;
+            }else {
+                anduvw = 0;
+            }
+            
+            console.log(anduvw)
+            
+            var halfeq = (oruvwnot && anduvw);
+            if(halfeq == true){
+                halfeq = 1;
+            }else {
+                halfeq = 0;
+            }
+            console.log(halfeq)
+            
+            var andwv = (iw && iv);
+            if(andwv == true){
+                andwv = 1;
+            }else {
+                andwv = 0;
+            }
+            console.log(andwv)
+            
+             var notu = !(iu);
+            if(notu == true){
+                notu = 1;
+            }else {
+                notu = 0;
+            }
+            console.log(notu)
+            
+            var halfeq1 = (andwv && notu);
+            if(halfeq1 == true){
+                halfeq1 = 1;
+            }else {
+                halfeq1 = 0;
+            }
+            console.log(halfeq1)
+            
+             var equation = (halfeq || halfeq1);
+            if(equation == true){
+                equation = 1;
+            }else {
+                equation = 0;
+            }
+            console.log(equation)
+            
+            document.getElementById('iu').innerText = iu;
+            document.getElementById('iv').innerText = iv;
+            document.getElementById('iw').innerText = iw;
+            
+            document.getElementById('oruvwnot').innerText = oruvwnot;
+            document.getElementById('anduvw').innerText = anduvw;
+            document.getElementById('halfeq').innerText = halfeq;
+            document.getElementById('andwv').innerText = andwv;
+            document.getElementById('notu').innerText = notu;
+            document.getElementById('halfeq1').innerText = halfeq1;
+            document.getElementById('equation').innerText = equation;
+            
+            return false;
+            
+        }
+    </script>
+</body>
+</html>
